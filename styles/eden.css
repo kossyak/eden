@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 15px;
+    max-height: 100vh;
+}
+*, :before, :after {
+    box-sizing: border-box;
+}
+button {
+    padding: 0;
+    border: 0;
+    font-size: 13px;
+    font-family: Arial;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+
+}
+td {
+    border: 1px solid #bababa;
+    height: 20px;
+    width: 20px;
+}
+#edenContainer {
+    padding: 20px 0;
+    position: relative;
+}
+.wr-map {
+    margin: 0 auto;
+    width: max-content;
+}
+#edenContainer:empty {
+    display: none;
+}
+.panel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+.btnGroup {
+    position: relative;
+    height: 64px;
+    width: 64px;
+    display: flex;
+}
+.btnGroup button {
+    position: absolute;
+}
+#edenContainer button {
+    box-sizing: content-box;
+    border-radius: 20px;
+}
+#edenContainer button:after {
+    content: '';
+    display: block;
+    height: 100%;
+    background-color: #bababa;
+    border-radius: 1px;
+}
+#edenContainer button:hover:after {
+    background-color: #212121;
+}
+#top {
+    top: 0;
+    left: 20px;
+    padding: 10px 0;
+    width: 24px;
+    height: 4px;
+}
+
+#bottom {
+    bottom: 0;
+    left: 20px;
+    padding: 10px 0;
+    width: 24px;
+    height: 4px;
+}
+
+#right {
+    right: 0;
+    top: 20px;
+    padding: 0 10px;
+    width: 4px;
+    height: 24px;
+}
+
+#left {
+    left: 0;
+    top: 20px;
+    padding: 0 10px;
+    width: 4px;
+    height: 24px;
+}
+
+#first, #last {
+    padding: 10px 0;
+    width: 24px;
+    height: 4px;
+}
