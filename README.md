@@ -10,6 +10,7 @@ eden.map(10,10)
 eden.render(width,height)
 
 **width** - ширина.
+
 **height** - высота.
 
 # build
@@ -27,8 +28,11 @@ color: 'gray'
 })
 
 **name** -  имя элемента, тип string.
+
 **coords** - координаты создаваемых элементов, тип Array.
-**coords** - цвет элемента для отображения на карте.
+
+**color** - цвет элемента для отображения на карте.
+
 
 # listener
 ```js
@@ -39,6 +43,7 @@ eden.listener('left', () => console.log('click left'))
 eden.listener(button, callback)
 
 **button** - название кнопки (top, right, bottom, left, first, last).
+
 **callback** - функция, которая вызывается при нажатии на кнопку.
 
 # spawn
@@ -53,9 +58,12 @@ eden.spawn('tiger', {
 
 eden.spawn(name, { y: 5, x: 0, color: 'orange' })
 
-name - имя элемента, тип string.
+**name** - имя элемента, тип string.
+
 **x,y** - координаты создания элемента, тип Number.
+
 **color** - цвет элемента для отображения на карте.
+
 
 # random
 ```js
@@ -70,6 +78,7 @@ eden.spawn('meet', {
 eden.random(max, min)
 
 **max** - максимальное возможное число, тип Number.
+
 **min** - необязательный параметр, минимально возможное число, по умолчанию равен нулю, тип Number.
 
 # active
@@ -86,17 +95,18 @@ eden.move('tiger', { y:eden.active.tiger.y-1 })
 ```
 
 ```js
-    try {
-       await eden.move('tiger', { y:eden.active.tiger.y-1 })
-    } catch(err) {
-      console.log(err)
-    }
+try {
+  await eden.move('tiger', { y:eden.active.tiger.y-1 })
+} catch(err) {
+  console.log(err)
+}
 ```
-
 eden.move(name, { y: 0, x: 0 })
 
 **name** - имя элемента, тип string.
+
 **x,y** - новые координаты куда нужно переместить элемент, тип Number.
+
 
 > Перемещение длиться в течении 800 ms. Чтобы остановить выполнение кода до конца выполнения операции перемещения, используется оператор await
 
@@ -113,7 +123,9 @@ console.log(eden.has('wall', { y:3, x:0 }))
 eden.has(name, { y:3, x:0 })
 
 **name** - имя элемента, тип string.
+
 **x,y** - новые координаты куда нужно переместить элемент, тип Number.
+
 
 
 
