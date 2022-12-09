@@ -3,7 +3,7 @@ import Eden from '../eden.js'
 const container = document.getElementById('edenContainer')
 const eden = new Eden(container)
 
-eden.render(10, 8)
+eden.map(10, 8)
 
 eden.build('wall', {
   coords: [{y: 2, x: 1}, {y: 2, x: 0}],

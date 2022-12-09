@@ -3,7 +3,7 @@ export default class Eden {
     this.container = container
     this.w = 8
     this.h = 8
-    this.map = {}
+    this.mesh = {}
     this.active = {}
     this.sheet = new CSSStyleSheet()
   }
@@ -22,11 +22,11 @@ export default class Eden {
   random(max = 1, min = 0) {
     return Math.floor(Math.random() * (max - min) ) + min
   }
-  render(w, h) {
+  map(w, h) {
     this.w = w
     this.h = h
     this.container.innerHTML = `
-                    <div class="wr-map"><table id="map"></table></div>
+                    <div class="wr-map"><table id="mesh"></table></div>
                     <div class="panel">
                       <button id="first"></button>
                       <div class="btnGroup">
@@ -43,8 +43,8 @@ export default class Eden {
         const td = document.createElement('td')
         tr.appendChild(td)
       }
-      this.map = map
-      this.map.appendChild(tr)
+      this.mesh = mesh
+      this.mesh.appendChild(tr)
     }
   }
   spawn(name, options) {
@@ -61,7 +61,7 @@ export default class Eden {
     })
   }
   grid(y, x) {
-    return this.map.children[y].children[x]
+    return this.mesh.children[y].children[x]
   }
   has(active, { y, x }) {
     return this.grid(y, x).classList.contains(active) || false
