@@ -1,8 +1,8 @@
 # eden
 eden - это игровой движок для создания мини игр, разработка которых позволяет осваивать и улучшать навыки программирования, пробовать новые алгоритмы и реализовывать смелые идеи.
 
-#start
-```bash
+## start
+```js
 import Eden from '../eden.js'
 
 const container = document.getElementById('edenContainer')
@@ -10,7 +10,7 @@ const eden = new Eden(container)
 ```
 Для подключения на странице в класс Eden необходимо передать контейнер, в который будет монтирован UI.
 
-# map
+## map
 ```js
 eden.map(10,10)
 ```
@@ -22,7 +22,7 @@ eden.render(width,height)
 
 **height** - высота.
 
-# build
+## build
 ```js
 eden.build('wall', {
   coords: [{y: 2, x: 1}, {y: 2, x: 0}],
@@ -43,7 +43,7 @@ color: 'gray'
 **color** - цвет элемента для отображения на карте.
 
 
-# listener
+## listener
 ```js
 eden.listener('left', () => console.log('click left'))
 ```
@@ -55,7 +55,7 @@ eden.listener(button, callback)
 
 **callback** - функция, которая вызывается при нажатии на кнопку.
 
-# spawn
+## spawn
 ```js
 eden.spawn('tiger', {
     y: 5,
@@ -74,7 +74,7 @@ eden.spawn(name, { y: 5, x: 0, color: 'orange' })
 **color** - цвет элемента для отображения на карте.
 
 
-# random
+## random
 ```js
 eden.spawn('meet', {
     y: eden.random(8),
@@ -90,14 +90,14 @@ eden.random(max, min)
 
 **min** - необязательный параметр, минимально возможное число, по умолчанию равен нулю, тип Number.
 
-# active
+## active
 ```js
 console.log(eden.active.tiger.y)
 console.log(eden.active.tiger.x)
 ```
 Получает координату активного элемента по выбранной оси.
 
-# move
+## move
 
 ```js
 eden.move('tiger', { y:eden.active.tiger.y-1 })
@@ -122,7 +122,7 @@ eden.move(name, { y: 0, x: 0 })
 > Если перемещение было задано в координаты, где уже есть другой элемент, то команда не будет выполнена. Ошибку можно поймать с помощью конструкции try / catch. В теле ошибки будет приходить имя элемента, который находится на месте в которое была попыты переместить иктивный элемент.
 
 
-# has
+## has
 
 ```js
 console.log(eden.has('wall', { y:3, x:0 }))
@@ -135,13 +135,13 @@ eden.has(name, { y:3, x:0 })
 
 **x,y** - новые координаты куда нужно переместить элемент, тип Number.
 
-# destroy
+## destroy
 ```js
 eden.destroy({y: 2, x: 1})
 ```
 Удаляет неактивный элемент на карте. Для этого необходимо передать его координаты.
 
-# remove
+## remove
 ```js
 eden.active.meet.remove()
 ```
