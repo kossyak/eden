@@ -22,3 +22,8 @@ eden.spawn('meet', {
   x: eden.random(9),
   color: 'red'
 })
+
+eden.move('tiger', { y:eden.active.tiger.y-1 })
+
+// eden.destroy({y: 2, x: 1})
+// eden.active.meet.remove()

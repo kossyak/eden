@@ -7,12 +7,11 @@ export default class Eden {
     this.active = {}
     this.sheet = new CSSStyleSheet()
   }
-  destroy() {
+  reset() {
     for (const name in this.active) {
       clearInterval(this.active[name].intervalId)
     }
     this.active = {}
-    this.events = {}
     const count = this.sheet.cssRules.length
     for (let i = 0; i < count; i++) {
       this.sheet.deleteRule(0)
@@ -23,6 +22,7 @@ export default class Eden {
     return Math.floor(Math.random() * (max - min) ) + min
   }
   map(w, h) {
+    this.reset()
     this.w = w
     this.h = h
     this.container.innerHTML = `
@@ -49,6 +49,11 @@ export default class Eden {
   }
   spawn(name, options) {
     this.active[name] = options
+    this.active[name].remove = () => {
+      clearInterval(this.active[name].intervalId)
+      const index = [...this.sheet.cssRules].findIndex(e => e.selectorText === '.' + name)
+      this.sheet.deleteRule(index)
+    }
     this.grid(options.y, options.x).classList.add(name)
     this.sheet.addRule('.' + name, `background: ${options.color};`)
     document.adoptedStyleSheets = [this.sheet]
@@ -84,6 +89,9 @@ export default class Eden {
         resolve()
       }, 800)
     })
+  }
+  destroy({y, x}) {
+    this.grid(y, x).className = ''
   }
   player() {
     document.onkeyup = (event) => {
